@@ -5,6 +5,8 @@ import   RadioGroup              from '@material-ui/core/RadioGroup';
 import   Typography              from '@material-ui/core/Typography';
 import { RadioButtonsActivated } from '../../atoms/RadioButtons/RadioButtonsActivated';
 import { ValueContext          } from '../../../hooks/UseContext/ValueContext';
+import { useState              } from 'react';
+import { RadContext          } from '../../../hooks/UseContext/RadContext';
 
 const useStyles = makeStyles({
     container: {
@@ -31,11 +33,15 @@ const useStyles = makeStyles({
 
 export const RadioButtonsGroup = () => {
 
-    const classes = useStyles(); 
+    const classes = useStyles();  
 
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = useState('');
+
+    // const [ disableRadio, setDisableRadio ] = useState(false);
  
     const { valuesRadio, setValuesRadio } = useContext(ValueContext); 
+
+    const { valuesRadioContext } = useContext( RadContext );
   
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue((event.target as HTMLInputElement).value);
@@ -44,8 +50,8 @@ export const RadioButtonsGroup = () => {
       }
     };
 
-    // console.log(value); 
-
+    // console.log(value);  
+  
     return (
         <FormControl className={ classes.container } component="fieldset">
             <Typography  className={ classes.text } variant="body1" >
@@ -60,15 +66,15 @@ export const RadioButtonsGroup = () => {
             >
                 <RadioButtonsActivated 
                     value='Home Office'
-                    disabled={ false } 
+                    disabled={ valuesRadioContext } 
                 />
                 <RadioButtonsActivated 
                     value='Presencial CDA'
-                    disabled={ false } 
+                    disabled={ valuesRadioContext } 
                 />
                 <RadioButtonsActivated 
                     value='Cliente'
-                    disabled={ false } 
+                    disabled={ valuesRadioContext } 
                 />
             </RadioGroup>
         </FormControl>

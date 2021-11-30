@@ -5,11 +5,11 @@ import   Typography          from '@material-ui/core/Typography';
 import { Watch             } from '../../atoms/Watch/Watch';
 import { ButtonPrimary     } from '../../atoms/Buttons/Primary/ButtonPrimary';
 import { ValueContext      } from '../../../hooks/UseContext/ValueContext';
+// import { RadioContext      } from '../../../hooks/UseContext/RadioContext';
 
 const useStyles = makeStyles({
     paperFunction: {
         backgroundColor: '#FFFF',
-        // height: '650px',
         height: '77%',
         marginBottom: '2rem',
         width: '70%',
@@ -43,7 +43,7 @@ export const PaperClock = (  ) => {
 
     const [text, setText] = useState('Comenzar');
       
-    const { valuesRadio } = useContext(ValueContext); 
+    const { valuesRadio } = useContext( ValueContext ); 
 
     const handleClick = () => {
         setText('Pausar');

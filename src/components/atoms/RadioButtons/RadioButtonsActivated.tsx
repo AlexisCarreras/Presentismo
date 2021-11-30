@@ -19,9 +19,9 @@ export const RadioButtonsActivated = ({ value, disabled }: valueRadioButton) => 
 
     return (
         <FormControlLabel 
-            value=     { value         } 
-            label=     { value         } 
-            disabled=  { disabled      }
+            value=     { value    } 
+            label=     { value    } 
+            disabled=  { disabled }
             control=   {
                 <Radio 
                 className= { classes.radio }

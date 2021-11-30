@@ -2,8 +2,7 @@ import { Theme,
          withStyles, 
          createStyles     } from '@material-ui/core/styles';
 import { IconButton, 
-         makeStyles, 
-         MenuItem         } from '@material-ui/core';
+         makeStyles        } from '@material-ui/core';
 import   NotificationsIcon  from '@material-ui/icons/Notifications';
 import   Badge              from '@material-ui/core/Badge';
 import   Menu               from '@material-ui/core/Menu';
