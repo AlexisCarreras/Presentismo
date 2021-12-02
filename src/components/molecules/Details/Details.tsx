@@ -34,6 +34,10 @@ export const Details = () => {
     const [registroHora, setRegistroHora] = useState<any>({});
 
     const fecha : string = String(registroHora.fecha);
+
+    // const idRegsitro : string;
+    // const inicio : string;
+    // const lugarTrabajo : string;
  
     useEffect( () => { 
         async function loadDetails () {
@@ -68,11 +72,15 @@ export const Details = () => {
                         { fecha.slice(0,-9) } 
                     </Typography> 
 
-            
+             
+                    <AccordionDetail 
+                    //     idRegsitro={ registroHora.data.idRegsitro }
+                    //     inicio={ registroHora.data.inicio }
+                    //     lugarTrabajo={ registroHora.data.lugarTrabajo }
+                    />
                     <AccordionDetail />
                     <AccordionDetail />
-                    <AccordionDetail />
-
+ 
                 </Card>
             }
         </div>
