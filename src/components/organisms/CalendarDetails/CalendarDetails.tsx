@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { Calendar   } from '../../atoms/Calendar/Calendar';
+// import { Calendar   } from '../../atoms/Calendar/Calendar';
 import { Details    } from '../../molecules/Details/Details';
 
 const useStyles = makeStyles({
@@ -21,7 +21,7 @@ export const CalendarDetails = () => {
 
     return (
         <div className={ classes.root } >
-            <Calendar />
+            {/* <Calendar /> */}
             <Details  />
         </div>
     )

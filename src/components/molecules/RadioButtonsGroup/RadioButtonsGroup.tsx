@@ -37,11 +37,11 @@ export const RadioButtonsGroup = () => {
 
     const [value, setValue] = useState('');
 
-    // const [ disableRadio, setDisableRadio ] = useState(false);
+    const { valuesRadioContext } = useContext( RadContext );
+    const [ disableRadio ] = useState(valuesRadioContext);
  
     const { valuesRadio, setValuesRadio } = useContext(ValueContext); 
 
-    const { valuesRadioContext } = useContext( RadContext );
   
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue((event.target as HTMLInputElement).value);
@@ -49,8 +49,7 @@ export const RadioButtonsGroup = () => {
           setValuesRadio(!valuesRadio);
       }
     };
-
-    // console.log(value);  
+    // console.log(value);    
   
     return (
         <FormControl className={ classes.container } component="fieldset">
@@ -66,15 +65,15 @@ export const RadioButtonsGroup = () => {
             >
                 <RadioButtonsActivated 
                     value='Home Office'
-                    disabled={ valuesRadioContext } 
+                    disabled={ disableRadio } 
                 />
                 <RadioButtonsActivated 
                     value='Presencial CDA'
-                    disabled={ valuesRadioContext } 
+                    disabled={ disableRadio } 
                 />
                 <RadioButtonsActivated 
                     value='Cliente'
-                    disabled={ valuesRadioContext } 
+                    disabled={ disableRadio } 
                 />
             </RadioGroup>
         </FormControl>

@@ -1,11 +1,15 @@
-import { useContext, useState        } from 'react';
-import { makeStyles, Paper } from '@material-ui/core';
-import { RadioButtonsGroup } from '../RadioButtonsGroup/RadioButtonsGroup';
-import   Typography          from '@material-ui/core/Typography';
-import { Watch             } from '../../atoms/Watch/Watch';
-import { ButtonPrimary     } from '../../atoms/Buttons/Primary/ButtonPrimary';
-import { ValueContext      } from '../../../hooks/UseContext/ValueContext';
-// import { RadioContext      } from '../../../hooks/UseContext/RadioContext';
+import { useContext, useState  } from 'react';
+import { makeStyles, Paper     } from '@material-ui/core';
+import { RadioButtonsGroup     } from '../RadioButtonsGroup/RadioButtonsGroup';
+import   Typography              from '@material-ui/core/Typography';
+import { Watch                 } from '../../atoms/Watch/Watch';
+import { ButtonPrimary         } from '../../atoms/Buttons/Primary/ButtonPrimary';
+import { ValueContext          } from '../../../hooks/UseContext/ValueContext';
+import { ButtonProvider        } from '../../../context/ButtonProvider';
+
+// import IniciarDia from '../../../services/IniciarDia/iniciarDia';
+// import FinalizarDia from '../../../services/FinalizarDia/finalizarDia';
+import RegistroDeHoras from '../../../services/RegistroDeHoras/registroDeHoras';
 
 const useStyles = makeStyles({
     paperFunction: {
@@ -37,47 +41,52 @@ const useStyles = makeStyles({
     },
 });
 
-export const PaperClock = (  ) => { 
+export const PaperClock = (  ) => {   
 
     const classes = useStyles();
 
     const [text, setText] = useState('Comenzar');
       
     const { valuesRadio } = useContext( ValueContext ); 
-
+ 
     const handleClick = () => {
         setText('Pausar');
+        // IniciarDia();
+        // FinalizarDia(); 
+        RegistroDeHoras();
     };
 
-    return (    
-        <Paper  
-            className={ classes.paperFunction } 
-            elevation={3}
-        >
-            <Watch />
-            <div className={ classes.containerText }>
-                <Typography className={ classes.text } variant="h4" gutterBottom>
-                    Horas
-                </Typography>
-                <Typography className={ classes.text } variant="h4" gutterBottom>
-                    Minutos
-                </Typography>
-            </div>  
+    return (  
+        <ButtonProvider>
+            <Paper  
+                className={ classes.paperFunction } 
+                elevation={3}
+            >
+                <Watch />
+                <div className={ classes.containerText }>
+                    <Typography className={ classes.text } variant="h4" gutterBottom>
+                        Horas
+                    </Typography>
+                    <Typography className={ classes.text } variant="h4" gutterBottom>
+                        Minutos
+                    </Typography>
+                </div>  
 
-            <RadioButtonsGroup /> 
+                <RadioButtonsGroup /> 
 
-            <div className={ classes.buttons }>
-                <ButtonPrimary 
-                    text= { text }  
-                    disabled = { valuesRadio } 
-                    onClick={ handleClick }
-                /> 
-                <ButtonPrimary 
-                    text=" Finalizar "  
-                    disabled = { true } 
-                    onClick={ handleClick }
-                /> 
-            </div>
-        </Paper> 
+                <div className={ classes.buttons }>
+                    <ButtonPrimary 
+                        text= { text }  
+                        disabled = { valuesRadio } 
+                        onClick={ handleClick }
+                    /> 
+                    <ButtonPrimary 
+                        text=" Finalizar "  
+                        disabled = { true } 
+                        onClick={ handleClick }
+                    /> 
+                </div>
+            </Paper> 
+        </ButtonProvider>  
     )
 }
