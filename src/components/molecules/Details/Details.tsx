@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import { makeStyles }      from '@material-ui/core';
 import   Card              from '@material-ui/core/Card';
 import   CardHeader        from '@material-ui/core/CardHeader';
 import   Typography        from '@material-ui/core/Typography';
 import { AccordionDetail } from '../../atoms/Accordion/AccordionDetail';
+
+import RegistroDeHoras from '../../../services/RegistroDeHoras/registroDeHoras';
 
 const useStyles = makeStyles({
     card: {

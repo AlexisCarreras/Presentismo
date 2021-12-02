@@ -1,6 +1,7 @@
 import axios from 'axios'; 
 
 export default async function FinalizarDia() {
+
     try {
       const response = await axios({
         url: 'https://presentismocda.herokuapp.com/finalizarDia',
@@ -15,7 +16,7 @@ export default async function FinalizarDia() {
           data: {
               usuario: 'fruiz',
               hora: '2021-12-01 23:00:00.000',
-          },
+          }, 
           message: '',
           code: ''
         }
@@ -27,4 +28,5 @@ export default async function FinalizarDia() {
     catch (e) {
       console.log(e)
     } 
+    
 }

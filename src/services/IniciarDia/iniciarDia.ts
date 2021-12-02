@@ -1,6 +1,7 @@
 import axios from 'axios'; 
 
 export default async function IniciarDia() {
+
   try {
     const response = await axios({
       url: 'https://presentismocda.herokuapp.com/inicio',
@@ -29,4 +30,5 @@ export default async function IniciarDia() {
   catch (e) {
     console.log(e)
   }
+  
 }
