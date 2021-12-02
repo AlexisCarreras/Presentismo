@@ -9,8 +9,10 @@ import RegistroDeHoras from '../../../services/RegistroDeHoras/registroDeHoras';
 
 const useStyles = makeStyles({
     card: {
-        width: '80%',
+        width: '100%',
         marginTop: '3rem',
+        marginRight: '3rem',
+        // marginLeft: '1rem',
     },
     cardHeader: {
         backgroundColor: '#54CAA6',
