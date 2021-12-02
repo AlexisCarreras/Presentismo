@@ -29,26 +29,51 @@ export const Details = () => {
 
     const classes = useStyles();
 
-    return (
-        <Card className={ classes.card }>
-            <CardHeader
-                className={ classes.cardHeader } 
-                disableTypography
-                title='Detalles'  
-            />
+    const [registroHora, setRegistroHora] = useState<any>({});
 
-            <Typography 
-                className={ classes.date }
-                variant='subtitle1'
-                align='center' 
-            >
-                24 Noviembre 2021
-            </Typography> 
+    const fecha : string = String(registroHora.fecha);
  
-            <AccordionDetail />
-            <AccordionDetail />
-            <AccordionDetail />
-        </Card>
+    useEffect( () => { 
+        async function loadDetails () {
+            const response: any =  await RegistroDeHoras()
+            console.log(response.data);
+
+            if( response.status === 200 ) {
+                setRegistroHora(response.data);
+            }
+            // return response.data;
+        } 
+        loadDetails();
+    }, []); 
+
+    return (
+        <div>
+            {  
+            registroHora &&
+                <Card className={ classes.card }>
+                    { console.log('aca' + registroHora) }
+                    
+                    <CardHeader
+                        className={ classes.cardHeader } 
+                        disableTypography
+                        title='Detalles'  
+                    />
+                    <Typography 
+                        className={ classes.date } 
+                        variant='subtitle1' 
+                        align='center' 
+                    > 
+                        { fecha.slice(0,-9) } 
+                    </Typography> 
+
+            
+                    <AccordionDetail />
+                    <AccordionDetail />
+                    <AccordionDetail />
+
+                </Card>
+            }
+        </div>
     )
 }
 

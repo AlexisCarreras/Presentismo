@@ -9,7 +9,6 @@ import { ButtonProvider        } from '../../../context/ButtonProvider';
 
 // import IniciarDia from '../../../services/IniciarDia/iniciarDia';
 import FinalizarDia from '../../../services/FinalizarDia/finalizarDia';
-// import RegistroDeHoras from '../../../services/RegistroDeHoras/registroDeHoras';
 
 const useStyles = makeStyles({
     paperFunction: {
