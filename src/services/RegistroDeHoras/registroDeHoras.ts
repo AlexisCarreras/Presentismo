@@ -10,18 +10,22 @@ export default async function RegistroDeHoras() {
             'Access-Control-Allow-Origin': '*',
           },
           data: { 
-              usuario: 'fruiz',
-              fecha: '2021-11-17 14:13:03',
-              messageid: '202111011413039992',
-              data: {
-                usuario: 'fruiz',
-                dia: '2021-12-01'
+              header: {
+                consulter: 'fruiz',
+                date: '2021-12-10 09:00:00',
+                messageid: '202111700900009992',
               },
-              message: '',
-              code: ''
+              data: {
+                user: 'fruiz',
+                day: '2021-12-10'
+              },
+              info: {
+                message: '',
+                code: ''
+              }
            }
         }) 
-        // console.log(response);
+        console.log(response);
         
         return response;
       }

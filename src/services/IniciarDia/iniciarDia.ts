@@ -10,17 +10,20 @@ export default async function IniciarDia() {
         'Access-Control-Allow-Origin': '*',
       },
       data: {
-        usuario: 'fruiz',
-        fecha: '2021-12-01 22:50:00',
-        messageid: '20214000900009992',
-        data: {
-            usuario: 'fruiz',
-            hora: '2021-12-01 22:50:00.000',
-            idLugarTrabajo:1,
-            idTipoHora:1
+        header: {
+          consulter: 'lmessi',
+          date: '2021-12-03 09:00:00',
+          messageid: '202111700900009992',
         },
-        message: '',
-        code: ''
+        data: {
+            user: 'fruiz', 
+            hour: '2021-12-03 09:00:00.000',
+            idLugarTrabajo: 4,
+        },
+        info: {
+          message: '',
+          code: ''
+        }
       }
     }) 
     console.log(response);

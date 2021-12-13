@@ -8,6 +8,12 @@ import   ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import   Typography            from '@material-ui/core/Typography';
 import   FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
+interface data {
+    idRegsitro   : string;
+    inicio       : string;
+    lugarTrabajo : string;
+}
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
       root: {
@@ -38,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const AccordionDetail = () => {
+export const AccordionDetail = ({ idRegsitro, inicio, lugarTrabajo }: data) => {
 
     const classes = useStyles();
 

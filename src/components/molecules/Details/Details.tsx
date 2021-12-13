@@ -32,32 +32,38 @@ export const Details = () => {
     const classes = useStyles();
 
     const [registroHora, setRegistroHora] = useState<any>({});
-
-    const fecha : string = String(registroHora.fecha);
-
-    // const idRegsitro : string;
-    // const inicio : string;
-    // const lugarTrabajo : string;
- 
+    
+    
     useEffect( () => { 
+        //Manejar excepcion
         async function loadDetails () {
             const response: any =  await RegistroDeHoras()
-            console.log(response.data);
-
+            // console.log(response.status);
+            
             if( response.status === 200 ) {
                 setRegistroHora(response.data);
             }
+            else {
+                setRegistroHora({});
+            }
+            // console.log(response.data);
+            // console.log(registroHora);
             // return response.data;
         } 
         loadDetails();
     }, []); 
+    
+    // const fecha : string = String(registroHora.header.date);
 
+    const idRegsitro : string = String (registroHora.data);
+    const inicio : string = String (registroHora.inicio);
+    const lugarTrabajo : string = String (registroHora.lugarTrabajo);
+    
     return (
         <div>
             {  
             registroHora &&
                 <Card className={ classes.card }>
-                    { console.log('aca' + registroHora) }
                     
                     <CardHeader
                         className={ classes.cardHeader } 
@@ -69,17 +75,18 @@ export const Details = () => {
                         variant='subtitle1' 
                         align='center' 
                     > 
-                        { fecha.slice(0,-9) } 
+                        {/* { fecha.slice(0,-9) }  */}
+                        10 de Diciembre 2021
                     </Typography> 
 
              
                     <AccordionDetail 
-                    //     idRegsitro={ registroHora.data.idRegsitro }
-                    //     inicio={ registroHora.data.inicio }
-                    //     lugarTrabajo={ registroHora.data.lugarTrabajo }
+                        idRegsitro = { idRegsitro }
+                        inicio= { inicio }
+                        lugarTrabajo= { lugarTrabajo }
                     />
-                    <AccordionDetail />
-                    <AccordionDetail />
+                    {/* <AccordionDetail />
+                    <AccordionDetail /> */}
  
                 </Card>
             }

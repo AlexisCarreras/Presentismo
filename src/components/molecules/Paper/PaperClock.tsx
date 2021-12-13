@@ -7,7 +7,7 @@ import { ButtonPrimary         } from '../../atoms/Buttons/Primary/ButtonPrimary
 import { ValueContext          } from '../../../hooks/UseContext/ValueContext';
 import { ButtonProvider        } from '../../../context/ButtonProvider';
 
-// import IniciarDia from '../../../services/IniciarDia/iniciarDia';
+import IniciarDia from '../../../services/IniciarDia/iniciarDia';
 import FinalizarDia from '../../../services/FinalizarDia/finalizarDia';
 
 const useStyles = makeStyles({
@@ -54,20 +54,20 @@ export const PaperClock = (  ) => {
         if ( text ===  'Comenzar' ) {
             setText('Pausar');
             setValueFinish(!valueFinish);
-            // IniciarDia();
-            // RegistroDeHoras(); 
+            IniciarDia();
         }
-        else if ( text ===  'Pausar' ) {
+        else if ( text ===  'Pausar' ) { 
             setText('Reanudar');
         }
         else if ( text ===  'Reanudar' ) {
             setText('Pausar');
         }
     };
-
-
+    
 
     const handleClickFinish = () => {
+        setText('Comenzar'); 
+        setValueFinish(!valueFinish);
         FinalizarDia(); 
     };
 

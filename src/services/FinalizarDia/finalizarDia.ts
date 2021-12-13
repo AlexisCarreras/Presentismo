@@ -10,15 +10,19 @@ export default async function FinalizarDia() {
           'Access-Control-Allow-Origin': '*',
         },
         data: {
-          usuario: 'fruiz',
-          fecha: '2021-12-01 23:00:00',
-          messageid: '20214000900009992',
+          header: {
+            consulter: 'fruiz',
+            date: '2021-12-03 09:00:00',
+            messageid: '202111700900009992',
+          },
           data: {
-              usuario: 'fruiz',
-              hora: '2021-12-01 23:00:00.000',
+              user: 'fruiz',
+              hour: '2021-12-02 14:50:00.000',
           }, 
-          message: '',
-          code: ''
+          info: {
+            message: '',
+            code: ''
+          }
         }
       }) 
       console.log(response);
